@@ -3,6 +3,12 @@ from rest_framework import routers
 
 from core import views
 
+
+router = routers.DefaultRouter()
+router.register('users', views.UserList)
+router.register('coleta-agendada', views.ColetaAgendadaList)
+
+
 urlpatterns = [
-    path('users/', views.UserList.as_view()),
+    path('', include(router.urls)),
 ]
